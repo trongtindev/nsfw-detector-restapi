@@ -1,0 +1,15 @@
+version: '3.8'
+
+networks:
+  trongtin:
+    name: trongtin
+
+services:
+  backend:
+    build: ./
+    ports:
+      - '${HTTP_PORT:-5050}:${HTTP_PORT:-5050}'
+    networks:
+      - trongtin
+    restart: always
+    container_name: '${DOCKER_CONTAINER_NAME:-nsfw-detector}'
